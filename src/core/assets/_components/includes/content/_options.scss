@@ -28,7 +28,8 @@
         margin: 0;
         padding: 0;
         color: #FFF;
-    }  
+    }
+
 
     .fa {   
         font-size: 1.2em;     
@@ -75,6 +76,10 @@
     color: #000;
     @include fontSize(16px);
 
+    abbr {
+        left: 0;
+    }
+
     #qg-page-feedback-form{
         padding-top: 1em;
         padding-bottom: 1em;
@@ -97,7 +102,7 @@
     }
 
     .required {
-        color: #c90000;    
+        color: #c90000;
     }  
 
     .invalid {
@@ -141,7 +146,7 @@
             padding: 0;
 
             h2, p {
-                margin: 1em 35px;
+                // margin: 1em 35px;
             }
 
             textarea {
@@ -167,15 +172,17 @@
         }  
 
         .label {
-            color: #000 !important;
-            font-weight: normal;
-            @include fontSize(16px); 
+            position: relative;
             display: inline;
-            position: static; 
+            // position: static; 
             width:auto;
             max-width: auto;
             margin: 0;
             padding:0;
+
+            color: #000 !important;
+            font-weight: normal;
+            @include fontSize(16px); 
             white-space: normal;
         }    
 
