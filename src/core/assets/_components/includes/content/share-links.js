@@ -89,7 +89,7 @@ function renderShareButtons () {
     <button id="shareDropdown" class="qg-share-link" title="share" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
       <span class="fa fa-share-alt fa-2x" aria-hidden="true"></span><span class="qg-visually-hidden">Share</span>
     </button>
-    <ul class="dropdown-menu" aria-labelledby="shareDropdown">
+    <ul id="qg-share-menu-secondary" class="dropdown-menu" aria-labelledby="shareDropdown">
       ${getLinks('secondary')}
     </ul>
   </li>
