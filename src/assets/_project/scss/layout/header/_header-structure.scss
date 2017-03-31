@@ -4,6 +4,9 @@
   margin-top: 0;
   padding-top: 16px;
   padding-bottom: 0;
+  margin-bottom: -1px;
+
+  border-bottom: 4px solid $qg-breadcrumb-bg-color;
   
   @media (min-width: $screen-sm-min) {
     margin-top: 32px;

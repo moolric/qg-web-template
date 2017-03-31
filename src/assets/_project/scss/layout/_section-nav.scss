@@ -91,3 +91,11 @@
   }
 
 }
+
+@media (min-width: $screen-md-min) {
+  // Set to shown to prevent nav from being hidden at full screen
+  #qg-content #qg-section-nav.collapse{
+     display: block;
+     height: auto !important;
+  }
+}

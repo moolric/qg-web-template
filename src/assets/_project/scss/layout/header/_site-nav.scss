@@ -17,7 +17,7 @@
 
 	a {
 		display: block;
-		padding: .4em ($grid-gutter-width / 2)+5px .6em ($grid-gutter-width / 2)+5px;
+		padding: .4em ($qg-margin-small) .6em ($qg-margin-small);
 	}
 
 	a, a:link, a:visited {

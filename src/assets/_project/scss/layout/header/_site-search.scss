@@ -1,8 +1,14 @@
 #qg-search-form {
+  // TODO: Upgrade this to Bootstrap compliance
   @extend .col-xs-12;
   @extend .col-sm-12;
   @extend .col-md-3;
-  @extend .col-lg-3; 
+  @extend .col-lg-3;
+
+  .input-group {
+    margin-top: $qg-margin-small;
+    margin-bottom: $qg-margin-small;
+  }
 
   input {
     border-radius: 0;
@@ -46,6 +52,13 @@
       padding: 0;
     }
   }  
+
+  @media (min-width: $screen-md-min) {
+    .input-group {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+  }
 
   /*
   @media (min-width: $screen-sm-min) {

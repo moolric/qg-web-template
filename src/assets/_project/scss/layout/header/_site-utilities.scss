@@ -1,20 +1,14 @@
 #qg-site-header .qg-utilities {
-  @extend .col-xs-12;
-  @extend .col-sm-5;
-  @extend .col-md-5;
-  @extend .col-lg-5;
+  @include make-xs-column(12);
+  @include make-sm-column(5);
 
-  text-align: right;
-
-  a, a:link {
-    color: $qg-blue5;
-    text-decoration: none;
-  } 
+  padding-top: 1em;
+  text-align: center;
 
   a:hover {
     color: $qg-blue5;
     text-decoration: underline
-  } 
+  }
 
   li {
     padding-right: 0;
@@ -22,36 +16,41 @@
     line-height: 1.75em;
 
     button, a {
+      @extend .btn;
+      @extend .btn-link;
+
+      @include fontSize(14px);
+
+      /*
       background-color: transparent;
       padding: 0;
       border: none;
       vertical-align: middle;
       display: inline-block;
+      color: $link-color;
       text-align: center;
+      text-decoration: none;
+*/
+      
       .fa {
         display: block;
       }
-      
-      /*
-      @include breakpoint($bs-md){
-        &:hover {
-          text-decoration: none;
-        }  
-      }  
-      */
     }
 
     & + li {
-      margin-left: 1em;
+      // margin-left: 1em;
     }
   }
+  
+  @media (min-width: $screen-md-min) {
+    padding: 0;
+    text-align: right;
 
-  /*
-  @include breakpoint($bs-xs){
-    display: block;  
-    text-align: center;
-    padding-top: 1em;
-    .fa { font-size: 1.3em; }
+    li {
+      button:hover, a:hover {
+        //color: $link-hover-color;
+        //text-decoration: underline;
+      }
+    }
   }
-  */
 }

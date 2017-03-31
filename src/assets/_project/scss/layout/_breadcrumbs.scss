@@ -26,8 +26,8 @@
 		margin-left: 0;
 		margin-bottom: 0;
 
-		padding-top: 1.5em;
-		padding-bottom: 1.5em;
+		padding-top: $qg-margin-small;
+		padding-bottom: $qg-margin-small;
 
 		color: #FFF;
 		text-align: center;
@@ -50,7 +50,7 @@
 		}
 
 		&:last-child{
-			font-size: 150%;
+			font-size: 120%;
 			font-weight: bold;
 		}
 	}
