@@ -65,7 +65,10 @@
         @extend .col-sm-push-6;     
         text-align: right;   
     }
-
+    
+    @media print {
+        display: none !important;
+    }
 }
 
 // #################################################

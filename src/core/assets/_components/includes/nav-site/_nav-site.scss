@@ -40,6 +40,10 @@
             //border-left: 1px solid #666;
         }
     }
+
+    @media print {
+        display: none !important;
+    }
 }
 
 // ############################################

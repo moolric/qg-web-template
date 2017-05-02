@@ -50,6 +50,10 @@
     @include breakpoint($bs-md) {
         margin-bottom: 1em;
     }
+
+    @media print {
+        display: none !important;
+    }
 }
 
 @include breakpoint($bs-min-lg) {

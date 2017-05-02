@@ -63,4 +63,8 @@
         padding-top: 1em;
         .fa { font-size: 1.3em; }
     }
+
+    @media print {
+        display: none !important;
+    }
 }
