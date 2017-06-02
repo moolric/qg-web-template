@@ -1,14 +1,36 @@
-<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script> -->
-<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
-<!-- Butterfly Lightbox -->
-<script src="/assets/v3/lib/ext/butterfly/jquery.resize-events.js"></script>
-<script src="/assets/v3/lib/ext/butterfly/jquery.history.js"></script>
-<script src="/assets/v3/lib/ext/butterfly/jquery.butterfly.js"></script>
+<html>
+<head>
+    <title>SAML Login</title>
+    <link rel="shortcut icon" href="https://www.confirm.com.au/citecConfirm/images/favicon.ico" />
 
-<!-- Require main javascript -->
-<script src="/assets/v3/js/qg-main.js"></script>
+    <!-- cidm-neo.css introduces style changes to allow the avatar to display as a horizontal list -->
+    <link rel="stylesheet" type="text/css" href="/cidm-login-widget/css/cidm-neo.css"/>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+    <script src="https://cdn.auth0.com/js/auth0/8.3.0/auth0.min.js"></script>
+    <!-- The Auth0 Lock widget needs to be loaded at the base level -->
+    <script src="https://cidm-neo.sandpit.test-services.qld.gov.au/lock/DEV/develop/lock.js"></script>
+
+    <!-- used to validate the JWT -->
+    <script src="https://cdn.auth0.com/w2/auth0-7.6.1.min.js"></script>
+
+    <!-- To load the dependencies we use http://requirejs.org -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.2/require.min.js"></script>
+    <!-- this script uses the cidm-neo extensions to add auth0 login capabilities to buttons -->
+
+    <style type="text/css">
+        .test-avatar {
+            text-align: center;
+        }
+
+        .test-avatar #qg-login-container {
+            width: 300px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
 
 <script type="text/javascript">
 
@@ -55,3 +77,14 @@
 
     });
 </script>
+
+
+<!-- ---------------------------------------------------------------------------------------------------- -->
+
+<div id="qg-login-avatar" class="test-avatar">
+</div>
+
+<!-- ---------------------------------------------------------------------------------------------------- -->
+
+</body>
+</html>

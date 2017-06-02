@@ -1,0 +1,14 @@
+<!doctype html>
+<head>
+    <title>Cross Storage Hub</title>
+</head>
+<body>
+<script type="text/javascript" src="/cidm-login-widget/js/csls/hub.js"></script>
+<script>
+    // Limit requests to any client running on .localhost:808x
+    CrossStorageHub.init([
+        {origin: /^.*$/, allow: ['get', 'set', 'del']}
+    ]);
+</script>
+</body>
+</html>

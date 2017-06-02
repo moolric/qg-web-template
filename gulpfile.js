@@ -84,7 +84,9 @@ gulp.task('watch', function () {
   gulp.watch([config.basepath.src + '/**/*.scss'], ['scss']);
   gulp.watch([config.basepath.src + '/**/*.js'], ['js', 'test']);
   gulp.watch([config.basepath.src + '**/*'], ['other-assets']);
+  gulp.watch([config.basepath.src + '/_other-files/build/**/*'], ['build-other-files']);
 });
+
 gulp.task('watch:components', function () {
   gulp.watch([config.basepath.src + '/assets/components/**/*.*'], ['build-components']);
 });

@@ -65,6 +65,7 @@ module.exports = {
       '!**/_local.*',
       '!**/legacy/**/*',
       '!**/lib/ext/**/*',
+      '!**/cidm-login-widget/**/*',
     ],
   },
 };

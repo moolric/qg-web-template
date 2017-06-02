@@ -50,4 +50,6 @@ etc/
 ### Build & Release ###
 /build/**
 /release/**
-src/**/build/**
+
+temp/
+tests/reports/
