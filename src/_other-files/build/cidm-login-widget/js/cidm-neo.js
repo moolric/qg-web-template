@@ -29,14 +29,13 @@ define([
             clientID : '',
             level: 'Level_1',
             wrapped: false,
-            returnTo: window.location.href,
+            returnTo: window.location.href
         },
 
         levels: {
             'Level_1' : 'CIDM-AAL1',
             'Level_2' : 'CIDM-AAL2'
         },
-
 
         getToken: function(callback) {
             //return callback(localStorage.getItem($.qgcidm._id_token));
@@ -50,7 +49,7 @@ define([
                     //console.log('token=',value);
                     callback(value);
                 })
-            ['catch'](function(err) {
+                ['catch'](function(err) {
                 console.error('token',err);
             });
 
@@ -65,7 +64,7 @@ define([
                     return $.qgcidm._storage.set($.qgcidm._id_token,value);
                 })
                 .then(callback)
-            ['catch'](function(err) {
+                ['catch'](function(err) {
                 console.error('token',err);
             });
 
@@ -80,7 +79,7 @@ define([
                     return $.qgcidm._storage.del($.qgcidm._id_token);
                 })
                 .then(callback)
-            ['catch'](function(err) {
+                ['catch'](function(err) {
                 console.error('token',err);
             });
 
@@ -102,25 +101,25 @@ define([
             var forgotPasswordLink = 'https://' + $.qgcidm.config.webtaskHome + '/ChangePassword/forgot?bk=' + window.location.href;
 
             $.qgcidm._lock = new Auth0Lock($.qgcidm.config.clientID, $.qgcidm.config.domain, {
-	            auth: {
+                auth: {
                     redirectUrl: $.qgcidm.config.returnTo,
                     responseType: 'token',
-		            params: { scope: $.qgcidm._scope }
-	            },
+                    params: { scope: $.qgcidm._scope }
+                },
                 webtaskHome: $.qgcidm.config.webtaskHome,
                 widgetHome: $.qgcidm.config.home,
                 codeTimeoutLimit: "30",
                 socialButtonStyle: "big",
                 forgotPasswordLink: forgotPasswordLink,
-	            languageDictionary: {
-		            title: "",
-		            loginLabel: "Sign in",
+                languageDictionary: {
+                    title: "",
+                    loginLabel: "Sign in",
                     loginSubmitLabel: "Sign in",
-		            signUpLabel: "Create",
-		            signUpSubmitLabel: "Create",
+                    signUpLabel: "Create",
+                    signUpSubmitLabel: "Create",
                     passwordInputPlaceholder: "Password",
-		            emailInputPlaceholder: "Email address",
-		            signUpTerms: "By accessing this service you are agreeing to the <a href='https://account.qld.gov.au/help/terms.html' target='_new'>terms of use</a>.",
+                    emailInputPlaceholder: "Email address",
+                    signUpTerms: "By accessing this service you are agreeing to the <a href='https://account.qld.gov.au/help/terms.html' target='_new'>terms of use</a>.",
                     loginWithLabel: "",
                     signUpWithLabel: "",
                     error: {
@@ -151,45 +150,45 @@ define([
                     success: {
                         codeSent: "We've just emailed your verification code to you. Please enter the code below."
                     }
-	            },
-	            theme: {
-		            logo: $.qgcidm.config.home + '/image/qld.png',
-		            primaryColor: '#005375'
-	            },
+                },
+                theme: {
+                    logo: $.qgcidm.config.home + '/image/qld.png',
+                    primaryColor: '#005375'
+                },
                 rememberLastLogin: false,
                 allowForgotPassword: true,
-	            closable: true,
-	            mustAcceptTerms: true,
-	            additionalSignUpFields: [{
-		            name: "phone",
-		            placeholder: "Mobile number",
-		            // The following properties are optional
-		            icon: $.qgcidm.config.home + "/phone.png",
-		            validator: function(phone) {
+                closable: true,
+                mustAcceptTerms: true,
+                additionalSignUpFields: [{
+                    name: "phone",
+                    placeholder: "Mobile number",
+                    // The following properties are optional
+                    icon: $.qgcidm.config.home + "/phone.png",
+                    validator: function(phone) {
                         var pattern = new RegExp(/^04[0-9]{8}$/g);
                         var result = pattern.test(phone);
-		                return {
-			                valid: result,
-			                hint: "Invalid mobile number. Please enter valid mobile number."
-		                };
-		            }
-	            },
-                                         {
-                                             name: "verifycode",
-                                             placeholder: "Enter code",
-                                             // The following properties are optional
-                                             icon: $.qgcidm.config.home + "/qrcode.png",
-                                             validator: function(phone) {
-                                                 var pattern = new RegExp(/^[0-9]{6}$/g);
-                                                 var result = pattern.test(phone);
-		                                         return {
-			                                         valid: result,
-			                                         hint: "Please enter the six digit code."
-		                                         };
-		                                     }
-                                         }]
+                        return {
+                            valid: result,
+                            hint: "Invalid mobile number. Please enter valid mobile number."
+                        };
+                    }
+                },
+                    {
+                        name: "verifycode",
+                        placeholder: "Enter code",
+                        // The following properties are optional
+                        icon: $.qgcidm.config.home + "/qrcode.png",
+                        validator: function(phone) {
+                            var pattern = new RegExp(/^[0-9]{6}$/g);
+                            var result = pattern.test(phone);
+                            return {
+                                valid: result,
+                                hint: "Please enter the six digit code."
+                            };
+                        }
+                    }]
 
-	        });
+            });
         },
 
         updateProfile: function(callback) {
@@ -212,36 +211,24 @@ define([
                         console.log('profile=',$.qgcidm.profile);
 
                         $('#qg-login-container').removeClass('logged-out').addClass('logged-in');
-                        $('#qg-btn-login').hide();
-                        $('#qg-btn-logout').show();
-                        $('#status-text').hide();
-                        $('#qg-sign-in-icon').hide();
-                        $('#qg-btn-text-sign-in').hide();
-                        $('#signedInAs').show();
-                        $('#gravatar').show();
-                        $('#nickname').show();
-                        $('#btnPlaceHolder').hide();
-                        $('#btnAbout').hide();
 
-                        // to load custom image if gravator is not found
                         var pic = $.qgcidm.profile.picture;
-                        var vars = {};
-                        var parts = pic.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
-                            vars[key] = value;
-                        });
+                        // var vars = {};
+                        // var parts = pic.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+                        //     vars[key] = value;
+                        // });
+                        //
+                        // if(vars.d != undefined)
+                        // {
+                        //     var arr = pic.split("&d");
+                        //     pic = arr[0] + "&d=" + $.qgcidm._home + "/image/user.gif";
+                        // }
 
-                        if(vars.d != undefined)
-                        {
-                            var arr = pic.split("&d");
-                            var pic = arr[0] + "&d=' + $.qgcidm._home + '/image/user.gif";
-                        }
-
-                        $('#gravatar')
-                        //.attr('src',$.qgcidm.profile.picture)
+                        $('#qg-user-image')
                             .attr('src', pic)
                             .attr('alt',$.qgcidm.profile.nickname || $.qgcidm.profile.name || $.qgcidm.profile.email)
                         ;
-                        $('#nickname')
+                        $('#qg-username')
                             .text($.qgcidm.profile.nickname || $.qgcidm.profile.name || $.qgcidm.profile.email)
                         ;
 
@@ -291,7 +278,7 @@ define([
                 + 'scope=' + $.qgcidm._scope.replace(/\s/g,'%20') + '&'
                 + 'connection=' + $.qgcidm.levels[$.qgcidm.config.level] + '&'
                 + 'redirect_uri=' + $.qgcidm.config.returnTo
-            ;
+                ;
         },
 
         getLogoutURL: function(e) {
@@ -299,7 +286,7 @@ define([
                 + 'federated&'
                 + 'client_id=' + $.qgcidm.config.clientID + '&'
                 + 'returnTo=' + $.qgcidm.config.returnTo
-            ;
+                ;
         },
 
         enable: function(e) {
@@ -321,109 +308,19 @@ define([
                 $.each($.qgcidm._avatar, function(key,avatar) {
                     // clean old avatar
                     $(avatar).find('*').remove();
-                    $(avatar).load('/cidm-login-widget/qg-login-container.html');
+                    $(avatar).load('/cidm-login-widget/qg-login-container.html', function() {
+                        $('#qg-btn-login').login();
+                        $('#qg-btn-logout').logout();
 
-                    // install new avatar
-                    // $('<div/>')
-                    //     .attr('id','qg-login-container')
-                    //     .addClass('logged-out')
-                    //     .append(
-                    //         $('<div/>')
-                    //             .attr('id','qg-login-status')
-                    //             .append(
-                    //                 $('<span/>')
-                    //                     .append(
-                    //                         $('<img/>')
-                    //                             .attr('id','gravatar')
-                    //                     )
-                    //             )
-                    //             .append(
-                    //                 $('<span/>')
-                    //                     .attr('id','qg-sign-in-icon')
-                    //                     .addClass('fa').addClass('fa-user').addClass('fa-2x')
-                    //                     .attr('aria-hidden',true)
-                    //             )
-                    //             .append(
-                    //                 $('<span/>')
-                    //                     .attr('id','qg-btn-text-sign-in')
-                    //                     .text('Sign in')
-                    //             )
-                    //     )
-                    //     .append(
-                    //         $('<div/>')
-                    //             .attr('id','qg-login-menu')
-                    //             .append(
-                    //                 $('<div/>')
-                    //                     .attr('id','status-text')
-                    //                     .append(
-                    //                         $('<span/>').text('Sign in to')
-                    //                     )
-                    //                     .append(
-                    //                         $('<br/>')
-                    //                     )
-                    //                     .append(
-                    //                         $('<span/>').text('qld.gov.au')
-                    //                     )
-                    //             )
-                    //             .append(
-                    //                 $('<span/>')
-                    //                     .attr('id','signedInAs')
-                    //                     .text('Signed in as:')
-                    //             )
-                    //             .append(
-                    //                 $('<span/>')
-                    //                     .attr('id','nickname')
-                    //             )
-                    //             .append(
-                    //                 $('<button/>')
-                    //                     .attr('id','qg-btn-login')
-                    //                     .text('Sign in')
-                    //                     .login()
-                    //             )
-                    //             .append(
-                    //                 $('<button/>')
-                    //                     .attr('id','btnPlaceHolder')
-                    //                     .text('Placeholder...')
-                    //             )
-                    //             .append(
-                    //                 $('<button/>')
-                    //                     .attr('id','btnAbout')
-                    //                     .text('About')
-                    //             )
-                    //             .append(
-                    //                 $('<button/>')
-                    //                     .attr('id','qg-btn-logout')
-                    //                     .text('Sign out')
-                    //                     .logout()
-                    //             )
-                    //     )
-                    //     .appendTo(avatar)
-                    // ;
+                        $('#qg-login-container').click(function() {
+                            $('#qg-login-menu').toggle();
+                        });
+
+                        $('#qg-login-container').removeClass('logged-in').addClass('logged-out');
+
+                        $('.avatar', document).trigger("loggedIn", [id_token]);
+                    });
                 });
-
-                $(document).on("click", '#qg-login-container', function() {
-                    var $loginMenu = $('#qg-login-menu');
-                    if($loginMenu.css('display') == 'none')
-                        $loginMenu.css('display', 'block');
-                    else {
-                        $loginMenu.css('display', 'none');
-                    }
-                });
-
-                $('#qg-login-container', document).removeClass('logged-in').addClass('logged-out');
-                $('#qg-btn-login', document).show();
-                $('#qg-btn-logout', document).hide();
-                $('#qg-sign-in-icon', document).show();
-                $('#status-text', document).show();
-                $('#qg-btn-text-sign-in', document).show();
-                $('#signedInAs', document).hide();
-                $('#gravatar', document).hide();
-                $('#nickname', document).hide();
-                $('#btnPlaceHolder', document).show();
-                $('#btnAbout', document).show();
-
-                $('.avatar', document).trigger("loggedIn", [id_token]);
-
             });
 
             $.qgcidm._lock.on("authenticated", function(authResult) {
@@ -461,19 +358,19 @@ define([
             var msg = "";
             switch(errMsg)
             {
-            case "user is blocked":
+                case "user is blocked":
                 {
                     msg = "Your account has been locked or is inactive. If your account has been locked you will need to wait 20 minutes before trying again. If you have closed your account you will need to create another account.";
                     break;
                 }
 
-            case "Please verify your email before logging in.":
+                case "Please verify your email before logging in.":
                 {
                     msg = "Please verify your email before logging in.";
                     break;
                 }
 
-            default:
+                default:
                 {
                     msg = errMsg;
                 }
@@ -487,6 +384,7 @@ define([
     $.fn.extend({
         login: function() {
             return $(this).each(function() {
+                console.log('extend login', this);
                 $(this).click(function(e) {
                     e.preventDefault();
                     if ($.qgcidm.config.wrapped) {
@@ -500,6 +398,7 @@ define([
         },
         logout: function() {
             return $(this).each(function() {
+                console.log('extend logout', this);
                 $(this).click(function(e) {
                     e.preventDefault(e);
                     $.qgcidm.quiet();
@@ -507,16 +406,6 @@ define([
                         $.qgcidm.profile = null
 
                         $('#qg-login-container').removeClass('logged-in').addClass('logged-out');
-                        $('#qg-btn-login').show();
-                        $('#qg-btn-logout').hide();
-                        $('#qg-sign-in-icon').hide();
-                        $('#status-text').show();
-                        $('#qg-btn-text-sign-in').show();
-                        $('#signedInAs').hide();
-                        $('#gravatar').hide();
-                        $('#nickname').hide();
-                        $('#btnPlaceHolder').show();
-                        $('#btnAbout').show();
 
                         $.qgcidm.profile = null;
                         $.qgcidm._onLogout.fire();

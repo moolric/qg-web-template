@@ -1,198 +1,68 @@
-
-.property_name {
-    color: purple
+#qg-login-container {
+    position: relative;
+    overflow: visible;
+    display: inline-block;
+    vertical-align: middle;
+    box-sizing: border-box;
 }
-.property_value {
-    color: red
-}
 
-.auth0-lock-input-verifycode
-{
+.logged-out #qg-login-trigger-logged-in {
     display: none;
 }
 
-#gravatar {
-    height: 50px;
+.logged-in #qg-login-trigger-logged-out {
+    display: none;
+}
+
+.logged-out #qg-myaccount-logged-in {
+    display: none;
+}
+
+.logged-in #qg-myaccount-logged-out {
+    display: none;
+}
+
+#qg-user-image {
+    width: 30px;
     object-fit: contain;
     clip-path: circle(50% at center);
 }
-.navlist {
-    vertical-align: center;
-    display: inline;
-    list-style-type: none;
-    padding-right: 20px;
-}
-.test_avatar {
-    background-color: gray;
-}
-.auth0-lock-header
-{
-    color:#FFFFFF !important;
-}
 
-.auth0-lock-header-bg
-{
-    background: #185376 !important;
-}
-.auth0-lock-content
-{
-    background: #F8FCFF !important;
-}
-.auth0-lock-tabs
-{
-    background: #F8FCFF !important;
-}
-.auth0-lock-header-logo
-{
-    position: absolute !important;
-    left: 40px;
-}
-.auth0-lock-name
-{
-    font-size: 27px !important;
-    position: absolute;
-    left: 108px;
-    top: 60px;
-}
-.auth0-lock-focused
-{
-    border-color: #185376 !important;
-}
-
-/*#############################################*/
-/*Log in container*/
-
-#qg-login-container {
-    position: relative;
-    margin: .5em; 1em 0 1em;
-    padding: .3em;
+#qg-login-trigger .qg-sign-in-icon {
     text-align: center;
-    font-size: .8em;
-    overflow: visible;
-    position: relative;
-    top: 0px;
-    min-width: 4em;
-    color:  #007EB1;
+    display: block;
 }
 
-#qg-login-container #qg-login-menu {
-    font-size: 1.2em;
-    position: absolute;
+#qg-login-menu {
     display: none;
-    min-width: 100%;
+    background: white;
+    box-sizing: border-box;
+    position: absolute;
     z-index: 1000;
-    right: 0px;
+    right: 0;
     top: 98%;
-    background-color: #FFF;
-    padding: .5em 1em 1em 1em;
-    border: 1px solid #EEE;
-    border-radius: 3px;
-    box-shadow: 0px 0px 5px #007EB1;
 }
 
-#qg-login-container #qg-login-menu #status-text {
-    position: relative;
-    display: block;
-    font-size: 1.5em;
-    line-height: 1.2;
-}
-
-#qg-login-container #qg-login-menu #nickname {
-    position: relative;
-    display: block;
-    font-size: 1em;
-    margin-bottom: 1em;
-}
-
-#qg-login-container #nickname-short {
-    position: relative;
-    display: block;
-    font-size: 1em;
-    width: 4em;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    margin: 0 auto 1em auto;
-}
-
-#qg-login-container #qg-login-menu button {
-    display: block;
-    border: 1px solid #CCC;
-    border-radius: 3px;
-    padding: .3em;
-    margin: 1em auto .3em auto;
-    line-height: 1;
-    min-width: 9em;
-    background-color: #78BA00;
-}
-
-#qg-login-container #qg-login-menu button.secondary-btn {
-    background-color: #CCC;
-
-}
-
-#qg-btn-text-sign-in {
-    display: block;
-}
-
-.qg-btn-text-sign-out {
-    display: block;
-}
-
-#qg-login-container #qg-login-menu button:hover {
-    background-color: #DDD;
-}
-
-#qg-login-status {
-}
-
-#qg-login-status span#gravatar img {
-    width: 35px;
-    border-radius: 50%;
-    vertical-align: bottom;
-}
-
-#qg-login-status span.qg-show-login-menu {
-    position: relative;
+#qg-login-menu h1 {
     font-size: 1.2em;
-    left: -.5em;
-    vertical-align: bottom;
-    text-shadow: 0px 0px 5px #FFF;
+    text-align: center;
 }
 
-#qg-login-status span.fa-user {
-    font-size: 25px;
-    width: 35px;
-    height: 35px;
-    line-height: 35px;
-    vertical-align: bottom;
-    border-radius: 17.5px;
-    background-color: #FFF;
-    color:  #CCC;
+#qg-login-menu .primary-nav {
+    text-align: center;
 }
 
-@media screen and (max-width: 760px) {
+#qg-login-menu .primary-nav > span {
+    display: block;
+}
 
-    #qg-login-container {
-        width: 100%;
-        padding: 0;
-        margin: 0;
-        /*background-color: aquamarine;*/
-    }
+#qg-login-menu .secondary-nav {
+    text-align: left;
+}
 
+@media(min-width: 480px) {
     #qg-login-container #qg-login-menu {
-        font-size: 1.2em;
-        position: relative;
-        display: none;
-        z-index: 1000;
-        right: 0px;
-        top: 0px;
-        background-color: #FFF;
-        padding: 0;
-        border: 1px solid #EEE;
-        border-radius: 0px;
-        box-shadow: none;
-        margin: 0;
+        width: 250px;
+        box-shadow: 0 2px 10px rgba(0,0,0,.5);
     }
-
 }

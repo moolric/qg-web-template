@@ -10,6 +10,11 @@
   "authors": "Queensland Government",
   "licence": "all rights reserved",
   "homepage": "http://www.qld.gov.au/",
+  "scripts": {
+    "prestart": "npm run build",
+    "build": "./node_modules/gulp/bin/gulp.js build",
+    "start": "./node_modules/gulp/bin/gulp.js build watch:serve"
+  },
   "devDependencies": {
     "babel-core": "^6.10.4",
     "babel-istanbul": "^0.12.1",

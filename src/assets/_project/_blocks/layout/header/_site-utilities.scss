@@ -15,12 +15,12 @@
     text-decoration: underline
   } 
 
-  li {
+  & > li {
     padding-right: 0;
     padding-left: 0;
     line-height: 1.75em;
 
-    button, a {
+    & > button, & > a {
       background-color: transparent;
       padding: 0;
       border: none;
@@ -44,5 +44,76 @@
 
   @media print {
     display: none;
+  }
+}
+
+
+// ############################################
+// My Account persistent login widget
+
+#qg-login-menu {
+  background: $qg-blue;
+  color: white;
+  padding: 20px;
+
+  h1 {
+    margin: 0 0 20px 0;
+    font-weight: 500;
+  }
+
+  a, a:link, a:hover {
+    color: white !important;
+  }
+
+  #qg-btn-login, #qg-btn-create-account, #qg-btn-logout {
+    @extend .btn;
+    @extend .btn-block;
+    @extend .btn-default;
+
+    border-color: transparent;
+
+    &:hover {
+      border-color: transparent;
+    }
+  }
+
+  #qg-btn-create-account {
+    background: $qg-light-gray;
+    color: $qg-blue !important;
+
+    &:hover, &:focus {
+      background: $qg-pale-blue;
+    }
+  }
+
+  #qg-btn-login, #qg-btn-logout {
+    background: $qg-blue-darker;
+
+    &:hover, &:focus {
+      background: $qg-blue-dark;
+    }
+  }
+
+  #qg-btn-login + span {
+    text-transform: uppercase;
+    padding: 5px 0;
+  }
+
+  ul.secondary-nav {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+
+    li .fa {
+      font-size: 1em;
+      margin-right: 10px;
+      display: inline-block;
+    }
+  }
+
+  hr {
+    border: none;
+    border-top: 2px solid rgba(255, 255, 255, 0.5);
+    margin: 20px 0;
   }
 }
