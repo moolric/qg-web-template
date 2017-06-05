@@ -253,20 +253,23 @@ define([
                 ;
         },
 
-        toggleLoginMenu: function(forceHide) {
+        toggleLoginMenu: function(options) {
+            options = options || {forceHide: false};
+
             var $loginMenu = $('#qg-login-menu');
             var $loginTrigger = $('#qg-login-trigger');
             var $loginMenuSpacer = $('#qg-login-avatar-spacer');
 
-            if ($('#qg-login-menu:visible').length > 0 || forceHide) {
+            if ($('#qg-login-menu:visible').length > 0 || options.forceHide) {
                 $loginMenu.hide();
                 $loginTrigger.removeClass('expanded');
                 $loginMenuSpacer.removeClass('expanded');
+                $loginMenu.trigger('hidden.qgcidm.loginMenu');
             } else {
                 $loginMenu.show();
                 $loginTrigger.addClass('expanded');
                 $loginMenuSpacer.addClass('expanded');
-                $(document).find('.collapse.in').collapse('hide');
+                $loginMenu.trigger('shown.qgcidm.loginMenu');
             }
 
             $loginMenuSpacer.height($('#qg-login-menu > div:visible').height());
@@ -296,12 +299,8 @@ define([
                         $('#qg-btn-logout').logout();
                         $('#qg-myaccount-link').attr('href', $.qgcidm.config.myAccountURL);
 
-                        $('#qg-login-trigger button').click(function() {
+                        $('#qg-login-trigger').find('button').click(function() {
                             $.qgcidm.toggleLoginMenu();
-                        });
-
-                        $(document).on('show.bs.collapse', function() {
-                            $.qgcidm.toggleLoginMenu(true);
                         });
 
                         $('#qg-login-container').removeClass('logged-in').addClass('logged-out');
@@ -391,7 +390,7 @@ define([
                     e.preventDefault(e);
                     $.qgcidm.quiet();
                     $.qgcidm.delToken(function(){
-                        $.qgcidm.profile = null
+                        $.qgcidm.profile = null;
 
                         $('#qg-login-container').removeClass('logged-in').addClass('logged-out');
 

@@ -130,6 +130,8 @@
             <li id="qg-login-avatar"></li>
         </ul>
 
+        <div id="qg-login-avatar-spacer"></div>
+
         <form action="https://pan.search.qld.gov.au/s/search.html" id="qg-search-form" role="search" class="collapse">
             <label for="qg-search-query" class="qg-visually-hidden">Search Queensland Government</label>
             <div class="input-group">
@@ -581,6 +583,10 @@
                 // this step tags the avatar div tag with the login/logout and name/icon widget
 
                 $('#qg-login-avatar').avatar(); // make the id=qg-login-avatar an avatar for the login widget
+
+                $(document).on('shown.qgcidm.loginMenu', function(){
+                    $(document).find('.collapse.in').collapse('hide');
+                });
 
                 //====================================================================================================
                 // this step enables the profile widget and renders the widget
