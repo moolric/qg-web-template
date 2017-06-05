@@ -312,8 +312,9 @@ define([
                         $('#qg-btn-login').login();
                         $('#qg-btn-logout').logout();
 
-                        $('#qg-login-container').click(function() {
+                        $('#qg-login-trigger button').click(function(event) {
                             $('#qg-login-menu').toggle();
+                            $('#qg-login-trigger').toggleClass('expanded');
                         });
 
                         $('#qg-login-container').removeClass('logged-in').addClass('logged-out');

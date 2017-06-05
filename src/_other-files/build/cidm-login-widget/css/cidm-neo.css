@@ -1,5 +1,4 @@
 #qg-login-container {
-    position: relative;
     overflow: visible;
     display: inline-block;
     vertical-align: middle;
@@ -35,17 +34,53 @@
 
 #qg-login-menu {
     display: none;
-    background: white;
+}
+
+#qg-login-trigger {
+    position: relative;
+    cursor: pointer;
+}
+
+#qg-login-trigger button {
+    background: transparent;
+    border: none;
+}
+
+#qg-username {
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#qg-login-trigger.expanded:after {
+    content: '';
+    width: 0;
+    height: 0;
+    border-left: 12px solid transparent;
+    border-right: 12px solid transparent;
+    border-bottom: 10px solid #f6f6f6;
+    z-index: 1001;
+    position: absolute;
+    right: 20%;
+}
+
+#qg-login-menu > div {
+    background: #f6f6f6;
     box-sizing: border-box;
     position: absolute;
     z-index: 1000;
+    margin-top: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,.5);
+    top: 100%;
     right: 0;
-    top: 98%;
+    left: 0;
 }
 
 #qg-login-menu h1 {
-    font-size: 1.2em;
+    font-size: 1.1em;
     text-align: center;
+    margin: 0 1px 20px 0;
 }
 
 #qg-login-menu .primary-nav {
@@ -61,8 +96,19 @@
 }
 
 @media(min-width: 480px) {
-    #qg-login-container #qg-login-menu {
+    #qg-login-container {
+        position: relative;
+    }
+
+    #qg-login-menu {
+        position: relative;
+        top: 10px;
+        right: -10px;
+    }
+
+    #qg-login-container #qg-login-menu > div {
+        left: auto;
         width: 250px;
-        box-shadow: 0 2px 10px rgba(0,0,0,.5);
+        margin-top: 0;
     }
 }
