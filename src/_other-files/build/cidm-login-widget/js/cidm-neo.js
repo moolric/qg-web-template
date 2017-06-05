@@ -258,21 +258,16 @@ define([
 
             var $loginMenu = $('#qg-login-menu');
             var $loginTrigger = $('#qg-login-trigger');
-            var $loginMenuSpacer = $('#qg-login-avatar-spacer');
 
             if ($('#qg-login-menu:visible').length > 0 || options.forceHide) {
                 $loginMenu.hide();
                 $loginTrigger.removeClass('expanded');
-                $loginMenuSpacer.removeClass('expanded');
                 $loginMenu.trigger('hidden.qgcidm.loginMenu');
             } else {
                 $loginMenu.show();
                 $loginTrigger.addClass('expanded');
-                $loginMenuSpacer.addClass('expanded');
                 $loginMenu.trigger('shown.qgcidm.loginMenu');
             }
-
-            $loginMenuSpacer.height($('#qg-login-menu > div:visible').height());
         },
 
         enable: function(e) {

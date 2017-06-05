@@ -98,16 +98,6 @@
     text-align: left;
 }
 
-#qg-login-avatar-spacer {
-    display: none;
-}
-
-#qg-login-avatar-spacer.expanded {
-    display: block;
-    clear: both;
-    margin-bottom: 40px;
-}
-
 @media(min-width: 480px) {
     #qg-login-container {
         position: relative;
@@ -122,12 +112,9 @@
     #qg-login-container #qg-login-menu > div {
         box-shadow: 0 2px 10px rgba(0,0,0,.5);
         left: auto;
+        bottom: auto;
         width: 250px;
         margin-top: 0;
-    }
-
-    #qg-login-avatar-spacer.expanded {
-        display: none;
     }
 }
 
