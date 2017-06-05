@@ -29,7 +29,8 @@ define([
             clientID : '',
             level: 'Level_1',
             wrapped: false,
-            returnTo: window.location.href
+            returnTo: window.location.href,
+            myAccountURL : ''
         },
 
         levels: {
@@ -316,6 +317,8 @@ define([
                             $('#qg-login-menu').toggle();
                             $('#qg-login-trigger').toggleClass('expanded');
                         });
+
+                        $('#qg-myaccount-link').attr('href', $.qgcidm.config.myAccountURL);
 
                         $('#qg-login-container').removeClass('logged-in').addClass('logged-out');
 
