@@ -39,49 +39,34 @@ define([
         },
 
         getToken: function(callback) {
-            //return callback(localStorage.getItem($.qgcidm._id_token));
-
             $.qgcidm._storage.onConnect()
                 .then(function() {
-                    console.log('getToken()');
                     return $.qgcidm._storage.get($.qgcidm._id_token);
                 })
                 .then(function(value) {
-                    //console.log('token=',value);
                     callback(value);
                 })
                 ['catch'](function(err) {
-                console.error('token',err);
             });
-
         },
 
         setToken: function(value,callback) {
-            //return callback(localStorage.setItem($.qgcidm._id_token, value));
-
             $.qgcidm._storage.onConnect()
                 .then(function() {
-                    console.log('setToken('+value+')');
                     return $.qgcidm._storage.set($.qgcidm._id_token,value);
                 })
                 .then(callback)
                 ['catch'](function(err) {
-                console.error('token',err);
             });
-
         },
 
         delToken: function(callback) {
-            //return callback(localStorage.removeItem($.qgcidm._id_token));
-
             $.qgcidm._storage.onConnect()
                 .then(function() {
-                    console.log('delToken()');
                     return $.qgcidm._storage.del($.qgcidm._id_token);
                 })
                 .then(callback)
                 ['catch'](function(err) {
-                console.error('token',err);
             });
 
         },
@@ -92,8 +77,6 @@ define([
                     $.qgcidm.config[key] = val;
                 });
             }
-
-            console.log('qgcidm=',$.qgcidm);
 
             $.qgcidm._scope = 'openid roles nickname name email profile read:profiles ' + $.qgcidm.config.level ;
 
@@ -209,40 +192,20 @@ define([
                         }
 
                         $.qgcidm.profile = profile;
-                        console.log('profile=',$.qgcidm.profile);
 
                         $('#qg-login-container').removeClass('logged-out').addClass('logged-in');
 
                         var pic = $.qgcidm.profile.picture;
-                        // var vars = {};
-                        // var parts = pic.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
-                        //     vars[key] = value;
-                        // });
-                        //
-                        // if(vars.d != undefined)
-                        // {
-                        //     var arr = pic.split("&d");
-                        //     pic = arr[0] + "&d=" + $.qgcidm._home + "/image/user.gif";
-                        // }
-
-                        $('#qg-user-image')
-                            .attr('src', pic)
-                            .attr('alt',$.qgcidm.profile.nickname || $.qgcidm.profile.name || $.qgcidm.profile.email)
-                        ;
-                        $('#qg-username')
-                            .text($.qgcidm.profile.nickname || $.qgcidm.profile.name || $.qgcidm.profile.email)
-                        ;
+                        var username = $.qgcidm.profile.nickname || $.qgcidm.profile.name || $.qgcidm.profile.email;
+                        $('#qg-user-image').attr('src', pic).attr('alt', username);
+                        $('#qg-username').text(username);
 
                         if (callback) {
                             callback();
                         }
-
                     });
-
                 }
             });
-
-
         },
 
         activity: function() {
@@ -290,6 +253,25 @@ define([
                 ;
         },
 
+        toggleLoginMenu: function(forceHide) {
+            var $loginMenu = $('#qg-login-menu');
+            var $loginTrigger = $('#qg-login-trigger');
+            var $loginMenuSpacer = $('#qg-login-avatar-spacer');
+
+            if ($('#qg-login-menu:visible').length > 0 || forceHide) {
+                $loginMenu.hide();
+                $loginTrigger.removeClass('expanded');
+                $loginMenuSpacer.removeClass('expanded');
+            } else {
+                $loginMenu.show();
+                $loginTrigger.addClass('expanded');
+                $loginMenuSpacer.addClass('expanded');
+                $(document).find('.collapse.in').collapse('hide');
+            }
+
+            $loginMenuSpacer.height($('#qg-login-menu > div:visible').height());
+        },
+
         enable: function(e) {
 
             $.qgcidm.getToken(function(id_token) {
@@ -312,13 +294,15 @@ define([
                     $(avatar).load('/cidm-login-widget/qg-login-container.html', function() {
                         $('#qg-btn-login').login();
                         $('#qg-btn-logout').logout();
+                        $('#qg-myaccount-link').attr('href', $.qgcidm.config.myAccountURL);
 
-                        $('#qg-login-trigger button').click(function(event) {
-                            $('#qg-login-menu').toggle();
-                            $('#qg-login-trigger').toggleClass('expanded');
+                        $('#qg-login-trigger button').click(function() {
+                            $.qgcidm.toggleLoginMenu();
                         });
 
-                        $('#qg-myaccount-link').attr('href', $.qgcidm.config.myAccountURL);
+                        $(document).on('show.bs.collapse', function() {
+                            $.qgcidm.toggleLoginMenu(true);
+                        });
 
                         $('#qg-login-container').removeClass('logged-in').addClass('logged-out');
 

@@ -46,6 +46,10 @@
 
                 $('#qg-login-avatar').avatar(); // make the id=qg-login-avatar an avatar for the login widget
 
+                $('#qg-login-avatar').onShow = function(){
+                    console.log('showing!!!!!');
+                };
+
                 //====================================================================================================
                 // this step enables the profile widget and renders the widget
 
