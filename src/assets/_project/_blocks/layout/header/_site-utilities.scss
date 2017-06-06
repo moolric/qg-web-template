@@ -48,12 +48,15 @@
   }
 }
 
-
 // ############################################
 // My Account persistent login widget
 
-#qg-login-trigger.expanded:after{
-  border-bottom-color: $qg-blue;
+#qg-login-trigger.expanded {
+  color: $qg-blue-darker;
+
+  &:after{
+    border-bottom-color: $qg-blue;
+  }
 }
 
 #qg-login-menu > div {
