@@ -1,22 +1,84 @@
-#qg-site-header .qg-utilities {
-  @include make-xs-column(6);
-  @include make-md-column(5);
+// ############################################
+// Site utilities
 
-  /*
-  @extend .col-xs-12;
-  @extend .col-sm-6;
-  @extend .col-md-5;
-  */
+#qg-mobile-menu {
+  @include make-xs-column(6);
+  @extend .list-inline;
+
   margin-top: 5px;
   text-align: right;
 
-  a, a:link, button {
-    color: $qg-site-header-util-links; // $qg-blue5;
+  button {
+    display: inline-block;
+    padding: 0;
+    vertical-align: middle;
+    border: none;
+    background-color: transparent;
 
-    &:hover {
+    @media (max-width: $screen-md) {
       color: $qg-site-header-util-links;
+      @include fontSize(12px);
+      line-height: 18px;
+      font-weight: 800;
+
+      &:hover {
+
+      }
     }
-  } 
+    text-align: center;
+    
+    .fa {
+      display: block;
+      @include fontSize(20px);
+    }
+  }
+
+  @media (min-width: $screen-md) {
+    display: none;
+  }
+
+  @media print {
+    display: none;
+  }
+}
+
+#qg-header-utilities {
+  @include make-xs-column(12);
+  @include make-md-column(5);
+  @extend .list-inline;
+
+  @media (min-width: $screen-md-min) {
+    text-align: right;
+  }
+
+  .fa {
+    @extend .hidden-md;
+    @extend .hidden-lg;
+
+    margin-right: .5em;
+  }
+
+  @media (min-width: $screen-md) {
+    &.collapse {
+      display: block;
+      height: auto;
+    }
+  }
+}
+
+/*
+#qg-site-header .qg-utilities {
+  @include make-md-column(5);
+  
+
+  // a, a:link, button {
+  //   color: $qg-site-header-util-links; // $qg-blue5;
+
+  //   &:hover {
+  //     color: $qg-site-header-util-links;
+  //   }
+  // }
+  
 
   a, a:link {
     text-decoration: none;
@@ -37,9 +99,16 @@
       border: none;
       background-color: transparent;
 
-      @include fontSize(12px);
-      line-height: 18px;
-      font-weight: 800;
+      @media (max-width: $screen-md) {
+        color: $qg-site-header-util-links;
+        @include fontSize(12px);
+        line-height: 18px;
+        font-weight: 800;
+
+        &:hover {
+
+        }
+      }
       text-align: center;
       
       .fa {
@@ -57,7 +126,9 @@
     text-align: right;
   }
 
+
   @media print {
     display: none;
   }
 }
+*/

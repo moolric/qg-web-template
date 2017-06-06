@@ -56,4 +56,10 @@
   @media print {
     display: none;
   }
+
+  @media (min-width: $screen-md-min) {
+    &.collapse {
+      display: block;
+    }
+  }
 }
