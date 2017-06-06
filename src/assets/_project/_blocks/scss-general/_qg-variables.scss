@@ -13,6 +13,7 @@ $qg-green: #78ba00; // For primary buttons, icons etc. (see bootstrap-variables.
 $qg-dark-gray-lighter: #8a8f91; // Lightest for large text on white
 $qg-dark-gray-light: #717679; // Lightest for small text on white
 $qg-dark-grey: #585e62; // For default buttons 
+$qg-dark-grey-dark: #666; // For default buttons 
 
 // ## Light grey ##
 $qg-light-gray-lighter: #fafafa;
@@ -51,6 +52,7 @@ $qg-icon-color: $qg-green;
 // Site header
 $qg-breadcrumb-bg-color: $qg-blue;
 $qg-site-header-bg-color: $qg-light-gray;
+$qg-site-header-util-links: $qg-dark-grey-dark;
 
 // Section Nav
 $qg-section-nav-bg-color: $qg-light-gray;

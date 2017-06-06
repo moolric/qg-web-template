@@ -1,8 +1,13 @@
 .qg-coat-of-arms {
+  @include make-xs-column(6);
+  @include make-md-column(3);
+  // @include make-md-column-push(3);
+  /*
   @extend .col-xs-12;
   @extend .col-sm-6;
   @extend .col-md-4;
   @extend .col-lg-4;
+  */
   
   padding-bottom: 16px*.8; 
   overflow: hidden;
