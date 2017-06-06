@@ -197,7 +197,7 @@ define([
 
                         var pic = $.qgcidm.profile.picture;
                         var username = $.qgcidm.profile.nickname || $.qgcidm.profile.name || $.qgcidm.profile.email;
-                        $('#qg-user-image').attr('src', pic).attr('alt', username);
+                        $('#qg-gravatar').attr('src', pic).attr('alt', username);
                         $('#qg-username').text(username);
 
                         if (callback) {
@@ -286,7 +286,7 @@ define([
 
                 //____________________________________________________________________________________________________
 
-                $.each($.qgcidm._avatar, function(key,avatar) {
+                $.each($.qgcidm._avatar, function(key, avatar) {
                     // clean old avatar
                     $(avatar).find('*').remove();
                     $(avatar).load('/cidm-login-widget/qg-login-container.html', function() {
@@ -366,7 +366,6 @@ define([
     $.fn.extend({
         login: function() {
             return $(this).each(function() {
-                console.log('extend login', this);
                 $(this).click(function(e) {
                     e.preventDefault();
                     if ($.qgcidm.config.wrapped) {
@@ -380,7 +379,6 @@ define([
         },
         logout: function() {
             return $(this).each(function() {
-                console.log('extend logout', this);
                 $(this).click(function(e) {
                     e.preventDefault(e);
                     $.qgcidm.quiet();

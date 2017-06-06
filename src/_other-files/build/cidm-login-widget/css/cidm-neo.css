@@ -21,7 +21,7 @@
     display: none;
 }
 
-#qg-user-image {
+#qg-gravatar {
     width: 30px;
     object-fit: contain;
     clip-path: circle(50% at center);
@@ -75,7 +75,6 @@
     position: absolute;
     z-index: 1000;
     margin-top: 10px;
-    top: 100%;
     right: 0;
     left: 0;
 }
@@ -121,5 +120,9 @@
 @media(min-width: 992px) {
     #qg-login-container .qg-sign-in-text {
         display: none;
+    }
+
+    #qg-gravatar {
+        width: 40px;
     }
 }

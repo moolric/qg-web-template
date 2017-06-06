@@ -44,7 +44,7 @@
                 //____________________________________________________________________________________________________
                 // this step tags the avatar div tag with the login/logout and name/icon widget
 
-                $('#qg-login-avatar').avatar(); // make the id=qg-login-avatar an avatar for the login widget
+                $('#qg-login-avatar').avatar();
 
                 $(document).on('shown.qgcidm.loginMenu', function(){
                     $(document).find('.collapse.in').collapse('hide');
@@ -54,11 +54,23 @@
                     $.qgcidm.toggleLoginMenu({forceHide: true});
                 });
 
+                var setLoginMenuPosition = function() {
+                    if (window.innerWidth >= 992) {
+                        $('#qg-search-form').after($('#qg-login-avatar'));
+                    } else {
+                        $('#qg-login-avatar').appendTo($('#qg-avatar-placeholder'));
+                    }
+                };
+
+                $(window).resize(function() {
+                    setLoginMenuPosition();
+                });
+
                 //====================================================================================================
                 // this step enables the profile widget and renders the widget
 
                 $.qgcidm.enable();
-
+                setLoginMenuPosition();
             });
         });
 
