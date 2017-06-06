@@ -27,6 +27,10 @@
     clip-path: circle(50% at center);
 }
 
+#qg-login-container .qg-sign-in-icon.fa-2x {
+    font-size: 30px;
+}
+
 #qg-login-trigger .qg-sign-in-icon {
     text-align: center;
     display: block;
@@ -66,7 +70,7 @@
     margin-right: auto;
     left: 0;
     right: 0;
-
+    top: 100%;
 }
 
 #qg-login-menu > div {
@@ -124,5 +128,9 @@
 
     #qg-gravatar {
         width: 40px;
+    }
+
+    #qg-login-container .qg-sign-in-icon.fa-2x {
+        font-size: 40px;
     }
 }

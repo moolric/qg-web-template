@@ -1,0 +1,110 @@
+body {
+    font-family: "Lato", "Helvetica", Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #000;
+    background-color: #fff;
+}
+
+#qg-login-menu > div #qg-btn-login, #qg-login-menu > div #qg-btn-create-account, #qg-login-menu > div #qg-btn-logout {
+    display: block;
+    width: 100%;
+    margin-bottom: 0;
+    font-weight: bold;
+    text-align: center;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    white-space: nowrap;
+    padding: 8.4px 21.6px;
+    font-size: 16px;
+    line-height: 1.5;
+    border-radius: 4px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    color: white;
+}
+
+#qg-login-trigger.expanded {
+    color: #005375;
+}
+
+#qg-login-trigger.expanded:after {
+    border-bottom-color: #007EB1;
+}
+
+#qg-login-menu > div {
+    background: #007EB1;
+    color: white;
+    padding: 20px;
+}
+
+#qg-login-menu > div h1 {
+    font-weight: 500;
+}
+
+#qg-login-menu > div a, #qg-login-menu > div a:link, #qg-login-menu > div a:hover {
+    color: white !important;
+}
+
+#qg-login-menu > div #qg-btn-login, #qg-login-menu > div #qg-btn-create-account, #qg-login-menu > div #qg-btn-logout {
+    border-color: transparent;
+}
+
+#qg-login-menu > div #qg-btn-login:hover, #qg-login-menu > div #qg-btn-create-account:hover, #qg-login-menu > div #qg-btn-logout:hover {
+    border-color: transparent;
+}
+
+#qg-login-menu > div #qg-btn-create-account {
+    background: #f6f6f6;
+    color: #007EB1 !important;
+}
+
+#qg-login-menu > div #qg-btn-create-account:hover, #qg-login-menu > div #qg-btn-create-account:focus {
+    background: #e7f5fe;
+}
+
+#qg-login-menu > div #qg-btn-login, #qg-login-menu > div #qg-btn-logout {
+    background: #005375;
+}
+
+#qg-login-menu > div #qg-btn-login:hover, #qg-login-menu > div #qg-btn-login:focus, #qg-login-menu > div #qg-btn-logout:hover, #qg-login-menu > div #qg-btn-logout:focus {
+    background: #13578b;
+}
+
+#qg-login-menu > div #qg-btn-login + span {
+    text-transform: uppercase;
+    padding: 5px 0;
+}
+
+#qg-login-menu > div ul.secondary-nav {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+#qg-login-menu > div ul.secondary-nav li a#qg-myaccount-link {
+    display: block;
+    text-align: center;
+}
+
+#qg-login-menu > div ul.secondary-nav li .fa {
+    font-size: 1em;
+    margin-right: 10px;
+    display: inline-block;
+}
+
+#qg-login-menu > div hr {
+    border: none;
+    border-top: 2px solid rgba(255, 255, 255, 0.5);
+    margin: 20px 0;
+}
+
+#qg-search-form + #qg-login-avatar .fa-2x {
+    font-size: 2.5em;
+}
