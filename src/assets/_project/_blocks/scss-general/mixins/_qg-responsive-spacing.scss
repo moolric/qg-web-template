@@ -2,24 +2,27 @@
 // QG addon to allow you to set dynamic padding or margins to elements based on the standard md break.
 
 // Settings
-@mixin qg-responsive-spacing ($prop, $scale: notset, $large: notset, $small: notset) {
+@mixin qg-responsive-spacing ($prop, $scale: notset, $large: notset, $small: notset, $min: notset) {
+  $default-min: $qg-spacing-xs / 2;
   $default-small: $qg-spacing-xs / 2;
   $default-large: $qg-spacing / 2;
 
-  @if $scale != 'notset' AND $large == 'notset' AND $small == 'notset' {
-    $small: $scale;
-    $large: $scale;
-  } @else if $scale != 'notset' AND $large != 'notset' AND $small == 'notset' {
-    $small: $scale;
-  }
-  @if $small == notset {
-    $small: default;
-  }
-  @if $large == notset {
-    $large: default;
+  @if $scale != notset {
+    @if $min == notset   { $min: $scale; }
+    @if $small == notset { $small: $scale; }
+    @if $large == notset { $large: $scale; }
+  } @else {
+    @if $min == notset   { $min: default; }
+    @if $small == notset { $small: default; }
+    @if $large == notset { $large: default; }
   }
 
   // Manipulate default / full variables
+  @if $min == default {
+    $min: $default-min;
+  } @else if $min == full {
+    $min: $default-min * 2;
+  }
   @if $small == default {
     $small: $default-small;
   } @else if $small == full {
@@ -31,12 +34,19 @@
     $large: $default-large * 2;
   }
 
-  // The 'small' breakpoint is dynamic. In this case, it's the smallest size
-  @if $small != false {
-    #{$prop}: $small;
+  // The xs breakpoint is dynamic. In this case, on xs
+  @if $min != false {
+    #{$prop}: $min;
   }
 
-  // The 'large' breakpoint is dynamic. In this case, on LG
+  // The md breakpoint is dynamic. In this case, on md
+  @if $small != false {
+    @media (min-width: $screen-md-min) {
+      #{$prop}: $small;
+    }
+  }
+
+  // The lg breakpoint is dynamic. In this case, on LG
   @if $large != false {
     @media (min-width: $screen-lg-min) {
       #{$prop}: $large;

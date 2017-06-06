@@ -104,7 +104,7 @@
 
   #qg-primary-content {
     @include make-md-column(6);
-    @include make-md-column-push(3);
+    // @include make-md-column-push(3);
   }
 
   #qg-secondary-content {
@@ -122,27 +122,27 @@
 #qg-two-col-aside.wide {
   #qg-primary-content {
     @include make-md-column(9);
-    @include make-md-column-push(0);
+    // @include make-md-column-push(0);
     @media (min-width: $screen-lg-min) {
       padding-left: $grid-gutter-width !important;
     }
   }
   #qg-secondary-content {
     display: block;
-    @include make-md-column-push(0);
+    // @include make-md-column-push(0);
   }
 }
 
 // Two column layout navigation (navigation, content)
 #qg-two-col-nav{
   #qg-section-nav {
-    @include make-md-column-pull(6);
+    // @include make-md-column-pull(6);
   }
 }
 #qg-two-col-nav.wide {
   #qg-primary-content {
     @include make-md-column(9);
-    @include make-md-column-push(3);
+    // @include make-md-column-push(3);
     @media (min-width: $screen-lg-min) {
       padding-right: $grid-gutter-width !important;
     }
@@ -152,6 +152,6 @@
 #qg-one-col.wide {
   #qg-primary-content {
     @include make-md-column(12);
-    @include make-md-column-push(0);
+    // @include make-md-column-push(0);
   }
 }

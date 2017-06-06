@@ -1,6 +1,6 @@
 .qg-coat-of-arms {
   @include make-xs-column(6);
-  @include make-md-column(3);
+  @include make-md-column(4);
   // @include make-md-column-push(3);
   /*
   @extend .col-xs-12;

@@ -42,6 +42,10 @@
 	li {
 		display: block;
 
+		&:first-child {
+			// 
+		}
+
 		& + li:before {
 			content: "\f078";
 			display: block;
@@ -55,7 +59,7 @@
 		}
 
 		&:last-child{
-			font-size: 150%;
+			// font-size: 150%;
 			font-weight: bold;
 		}
 	}

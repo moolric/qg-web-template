@@ -1,6 +1,6 @@
 #qg-site-header .qg-utilities {
   @include make-xs-column(6);
-  @include make-md-column(3);
+  @include make-md-column(5);
 
   /*
   @extend .col-xs-12;
