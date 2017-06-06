@@ -605,12 +605,6 @@
                     setLoginMenuPosition();
                 });
 
-                $(window).scroll(function() {
-                    if ($('#qg-login-menu > div:visible').css('position') === 'fixed') {
-                        $.qgcidm.toggleLoginMenu({forceHide: true});
-                    }
-                });
-
                 //====================================================================================================
                 // this step enables the profile widget and renders the widget
 

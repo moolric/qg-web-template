@@ -27,13 +27,6 @@
     clip-path: circle(50% at center);
 }
 
-#qg-username {
-    width: 100%;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
 #qg-login-trigger .qg-sign-in-icon {
     text-align: center;
     display: block;
@@ -53,6 +46,13 @@
     border: none;
 }
 
+#qg-username {
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 #qg-login-trigger.expanded:after {
     content: '';
     width: 0;
@@ -66,17 +66,17 @@
     margin-right: auto;
     left: 0;
     right: 0;
+
 }
 
 #qg-login-menu > div {
     background: #f6f6f6;
     box-sizing: border-box;
+    position: absolute;
     z-index: 1000;
-    position: fixed;
-    bottom: 0;
-    left: 0;
+    margin-top: 10px;
     right: 0;
-    top: 10px;
+    left: 0;
 }
 
 #qg-login-menu h1 {
@@ -110,11 +110,8 @@
 
     #qg-login-container #qg-login-menu > div {
         box-shadow: 0 2px 10px rgba(0,0,0,.5);
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: auto;
         left: auto;
+        bottom: auto;
         width: 250px;
         margin-top: 0;
     }
