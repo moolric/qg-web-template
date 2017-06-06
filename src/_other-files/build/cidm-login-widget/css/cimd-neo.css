@@ -1,0 +1,46 @@
+
+.property_name {
+    color: purple
+}
+.property_value {
+    color: red
+}
+
+.auth0-lock-input-verifycode
+{
+    display: none;
+}
+
+.auth0-lock-header
+{
+    color:#FFFFFF !important;
+}
+
+.auth0-lock-header-bg
+{
+    background: #185376 !important;
+}
+.auth0-lock-content
+{
+    background: #F8FCFF !important;
+}
+.auth0-lock-tabs
+{
+    background: #F8FCFF !important;
+}
+.auth0-lock-header-logo
+{
+    position: absolute !important;
+    left: 40px;
+}
+.auth0-lock-name
+{
+    font-size: 27px !important;
+    position: absolute;
+    left: 108px;
+    top: 60px;
+}
+.auth0-lock-focused
+{
+    border-color: #185376 !important;
+}
