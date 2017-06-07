@@ -71,7 +71,7 @@
     background: transparent;
     border: none;
 
-    &+ .dropdown-menu{
+    & + .dropdown-menu{
       // background: $qg-content-options-share-dropdown-bg-color;
       border: 0;
 
@@ -180,8 +180,8 @@
     // @extend .col-xs-12;
     padding-top: $qg-spacing-xs / 2;
     padding-bottom: $qg-spacing-xs / 2;
-    @include qg-responsive-spacing('padding-left');
-    @include qg-responsive-spacing('padding-right');
+    @include qg-responsive-spacing(padding-left, $large: full);
+    @include qg-responsive-spacing(padding-right, $large: full);
 
     .panel{
       @extend .panel-unstyled;

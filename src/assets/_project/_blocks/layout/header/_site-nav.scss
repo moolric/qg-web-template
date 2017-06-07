@@ -1,27 +1,67 @@
 // ############################################
 // Site navigation
 
+@mixin liMobileButtons {
+  @media (max-width: $screen-md) {
+    list-style: none;
+
+    a {
+      display: block;
+      line-height: 3em;
+    }
+
+    & + * {
+      border-top: 1px solid $qg-light-gray-darker;
+    }
+  }
+}
+
 #qg-site-nav {
   @include make-xs-column(12);
-
-  padding: 0;
-  // background: #494949;
+  @include qg-responsive-spacing(padding-left, $small: half, $large: $qg-spacing * 0.75);
+  margin-bottom: 12.8px;
 
   @include fontSize(16px);
 
   ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-
-    @media (min-width: $screen-lg-min) {
-        padding-left: $qg-spacing / 2;
-      }
+    @extend .list-group;
+    margin-bottom: 0;
   }
 
-  a {
-    display: block;
-    // padding: .4em ($grid-gutter-width / 2)+5px .6em ($grid-gutter-width / 2)+5px;
+  li {
+    @include liMobileButtons;
+    list-style-type: none;
+
+    @media (min-width: $screen-md) {
+      display: inline-block;
+    }
+
+    a {
+      display: inline-block;
+
+      &:before {
+        content: '\f105'; // content: "\f054";
+        display: inline-block !important;
+        width: 16px;
+        margin: 0;
+        margin-right: 8px;
+        text-decoration: none;
+
+        font-family: FontAwesome;
+      }
+
+      @media (min-width: $screen-md) {
+        padding-left: $qg-spacing / 4;
+        padding-right: $qg-spacing / 4;
+
+        &:before {
+          content: "";
+          display: none;
+          width: 0;
+          margin-right: 0;
+        }
+      }
+    }
   }
 
   @media print {
@@ -31,10 +71,11 @@
   @media (min-width: $screen-md) {
     &.collapse {
       display: block;
-      height: auto;
+      height: auto !important;
     }
   }
 }
+
 
 /*
 @media (min-width: $screen-md-min) {

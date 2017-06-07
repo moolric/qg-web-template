@@ -14,18 +14,14 @@
     vertical-align: middle;
     border: none;
     background-color: transparent;
+    text-align: center;
 
     @media (max-width: $screen-md) {
       color: $qg-site-header-util-links;
       @include fontSize(12px);
       line-height: 18px;
       font-weight: 800;
-
-      &:hover {
-
-      }
     }
-    text-align: center;
     
     .fa {
       display: block;
@@ -42,10 +38,12 @@
   }
 }
 
-#qg-header-utilities {
+#qg-header-utilities { // on UL
   @include make-xs-column(12);
   @include make-md-column(5);
-  @extend .list-inline;
+  @extend .list-group;
+
+  margin-bottom: 0;
 
   @media (min-width: $screen-md-min) {
     text-align: right;
@@ -54,8 +52,27 @@
   .fa {
     @extend .hidden-md;
     @extend .hidden-lg;
+    width: 16px;
+    margin-right: 8px;
+  }
 
-    margin-right: .5em;
+  li {
+    @include liMobileButtons;
+    list-style-type: none;
+
+    a {
+      border-bottom: 1px solid $qg-light-gray-darker;
+
+      @media (min-width: $screen-md) {
+        border-bottom: 0;
+      }
+    }
+  }
+
+  @media (min-width: $screen-md) {
+    li a {
+      line-height: 43px;
+    }
   }
 
   @media (min-width: $screen-md) {

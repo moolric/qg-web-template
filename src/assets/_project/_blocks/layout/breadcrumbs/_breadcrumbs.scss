@@ -6,7 +6,7 @@
 	background: $qg-breadcrumb-bg-color;
 
 	h1, h2 {
-		 color: #FFF;
+		color: #FFF;
 	}
 
 	a {
@@ -41,9 +41,10 @@
 
 	li {
 		display: block;
+		padding: 0;
 
-		&:first-child {
-			// 
+		& + li {
+			padding-left: 5px;
 		}
 
 		& + li:before {

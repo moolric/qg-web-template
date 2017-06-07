@@ -22,31 +22,37 @@
     $min: $default-min;
   } @else if $min == full {
     $min: $default-min * 2;
+  } @else if $min == half {
+    $min: $default-min / 2;
   }
   @if $small == default {
     $small: $default-small;
   } @else if $small == full {
     $small: $default-small * 2;
+  } @else if $small == half {
+    $small: $default-small / 2;
   }
   @if $large == default {
     $large: $default-large;
   } @else if $large == full {
     $large: $default-large * 2;
+  } @else if $large == half {
+    $large: $default-large / 2;
   }
 
-  // The xs breakpoint is dynamic. In this case, on xs
+  // The min breakpoint is dynamic. In this case, on xs
   @if $min != false {
     #{$prop}: $min;
   }
 
-  // The md breakpoint is dynamic. In this case, on md
+  // The small breakpoint is dynamic. In this case, on md
   @if $small != false {
     @media (min-width: $screen-md-min) {
       #{$prop}: $small;
     }
   }
 
-  // The lg breakpoint is dynamic. In this case, on LG
+  // The large breakpoint is dynamic. In this case, on LG
   @if $large != false {
     @media (min-width: $screen-lg-min) {
       #{$prop}: $large;
