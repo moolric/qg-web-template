@@ -12,3 +12,32 @@
 <script src="/assets/v3/js/qg-main.js"></script>
 <!--<script src="/assets/v3/components/loader/loader.js"></script>-->
 
+<script type="text/javascript">
+    requirejs(['http://localhost:7000/js/cidm-loader.js'], function() {
+        requirejs(['cidm-neo', 'cidm-utils'], function(neo, utils) {
+            $(document).ready(function() {
+                $.qgcidm.initialise({
+                    home: 'http://localhost:7000',
+                    domain: 'dev.qld-gov-dev.auth0.com',
+                    clientID: 'SXRnv057hfEeF82fFa2yWBiDZeX0Yp1Z',
+                    webtaskHome: 'webtask.qld-gov-dev.auth0.com/api/run/dev',
+                    level: 'Level_1',
+                    wrapped: true,
+                    returnTo: 'http://localhost:3000/minimal.html'
+                });
+
+                $('#qg-avatar')
+                    .avatar()
+                    .onLogin(function() {
+                        console.log('on login');
+                    })
+                    .onLogout(function() {
+                        console.log('on logout');
+                    })
+                ;
+
+                $.qgcidm.enable();
+            });
+        });
+    });
+</script>

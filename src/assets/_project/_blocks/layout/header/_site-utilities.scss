@@ -5,6 +5,10 @@
 
   text-align: center;
 
+  &.list-inline {
+    margin-left: 0;
+  }
+
   a, a:link {
     color: $qg-blue5;
     text-decoration: none;

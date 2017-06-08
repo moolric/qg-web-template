@@ -1,0 +1,99 @@
+// ############################################
+// My Account persistent login widget
+
+#qg-login-container {
+    #qg-login-trigger.expanded {
+        color: $qg-blue-darker;
+
+        &:after{
+            border-bottom-color: $qg-blue;
+        }
+    }
+
+    .qg-sign-in-icon.fa-2x {
+        font-size: 2em;
+
+        @media (min-width: $screen-md) {
+            font-size: 2.5em;
+        }
+    }
+
+    #qg-login-menu > div {
+        background: $qg-blue;
+        color: white;
+        padding: 20px;
+
+        h1 {
+            font-weight: 500;
+        }
+
+        a, a:link, a:hover {
+            color: white !important;
+        }
+
+        #qg-btn-login, #qg-btn-create-account, #qg-btn-logout {
+            @extend .btn;
+            @extend .btn-block;
+            @extend .btn-default;
+
+            border-color: transparent;
+
+            &:hover {
+                border-color: transparent;
+            }
+        }
+
+        #qg-btn-create-account {
+            background: $qg-light-gray;
+            color: $qg-blue !important;
+
+            &:hover, &:focus {
+                background: $qg-pale-blue;
+            }
+        }
+
+        #qg-btn-login, #qg-btn-logout {
+            background: $qg-blue-darker;
+
+            &:hover, &:focus {
+                background: $qg-blue-dark;
+            }
+        }
+
+        #qg-btn-login + span {
+            text-transform: uppercase;
+            padding: 5px 0;
+        }
+
+        ul.secondary-nav {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+
+            li {
+                margin-left: 0;
+            }
+
+            li a#qg-myaccount-link {
+                display: block;
+                text-align: center;
+            }
+
+            li .fa {
+                font-size: 1em;
+                margin-right: 10px;
+                display: inline-block;
+            }
+        }
+
+        hr {
+            border: none;
+            border-top: 2px solid rgba(255, 255, 255, 0.5);
+            margin: 20px 0;
+        }
+    }
+}
+
+#qg-search-form + #qg-avatar {
+    @extend .col-md-1;
+}
