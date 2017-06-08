@@ -7,8 +7,8 @@ import '../../../../node_modules/bootstrap/dist/js/bootstrap.js';
 
 // Utils
 
-/*This 2 modules (breakpoints, parentwidth) are to be initialize where we are using these or If we make one common function for small utilities then we can initialize here in the main file.*/
-/*import breakpoints        from './utils/breakpoints';*/
+// This 2 modules (breakpoints, parentwidth) are to be initialize where we are using these or If we make one common function for small utilities then we can initialize here in the main file.
+// import breakpoints        from './utils/breakpoints';
 
 // Components
 import './utils/parent-width';
@@ -26,6 +26,7 @@ import './layout/footer/language-scroller';
 import activeSideNav      from './layout/section-nav/section-nav';
 import shareLinks         from './layout/content/share-links';
 import feedbackForm       from './layout/footer/feedback-form';
+import loginWidget        from './layout/header/login-widget';
 
 (function () {
   'use strict';
@@ -35,6 +36,7 @@ import feedbackForm       from './layout/footer/feedback-form';
   activeSideNav.highlightNavItem();
   feedbackForm.init(franchiseTitle);
   shareLinks.init();
+  loginWidget.init();
 
   accessibility.init();
 }());
