@@ -13,11 +13,11 @@
 <!--<script src="/assets/v3/components/loader/loader.js"></script>-->
 
 <script type="text/javascript">
-    requirejs(['http://localhost:7000/js/cidm-loader.js'], function() {
+    requirejs(['https://cidm-neo.sandpit.test-services.qld.gov.au/DEV/CIDM-NEO/master/js/cidm-loader.js'], function() {
         requirejs(['cidm-neo', 'cidm-utils'], function(neo, utils) {
             $(document).ready(function() {
                 $.qgcidm.initialise({
-                    home: 'http://localhost:7000',
+                    home: 'https://cidm-neo.sandpit.test-services.qld.gov.au/DEV/CIDM-NEO/master',
                     domain: 'dev.qld-gov-dev.auth0.com',
                     clientID: 'SXRnv057hfEeF82fFa2yWBiDZeX0Yp1Z',
                     webtaskHome: 'webtask.qld-gov-dev.auth0.com/api/run/dev',
