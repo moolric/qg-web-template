@@ -51,3 +51,4 @@ etc/
 /build/**
 /release/**
 src/**/build/**
+!src/**/build/callback.html
