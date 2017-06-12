@@ -94,6 +94,6 @@
     }
 }
 
-#qg-search-form + #qg-avatar {
+.with-avatar #qg-search-form + #qg-avatar {
     @extend .col-md-1;
 }

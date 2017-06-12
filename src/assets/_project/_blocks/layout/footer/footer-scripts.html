@@ -26,16 +26,7 @@
                     returnTo: 'http://localhost:3000/minimal.html'
                 });
 
-                $('#qg-avatar')
-                    .avatar()
-                    .onLogin(function() {
-                        console.log('on login');
-                    })
-                    .onLogout(function() {
-                        console.log('on logout');
-                    })
-                ;
-
+                $('#qg-avatar').avatar().trigger('qg.avatar.enabled');
                 $.qgcidm.enable();
             });
         });
