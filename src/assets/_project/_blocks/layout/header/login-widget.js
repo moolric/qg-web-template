@@ -9,6 +9,12 @@ const loginWidget = (function () {
     $(window).resize(function () {
       setLoginIconPosition();
     });
+
+    $(document).on('click', '#qg-btn-logout, #qg-btn-login, #qg-btn-create-account', function () {
+      if (localStorage) {
+          localStorage.setItem('callback', location.pathname);
+      }
+    });
   }
 
   function setLoginIconPosition () {
