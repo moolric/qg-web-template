@@ -5,7 +5,6 @@
     "clientID": "KbLYhgu6qXDdpqWD8LV6rodBu2RO3YcH",
     "home": "https://cidm-neo.sandpit.test-services.qld.gov.au/DEV/CIDM-NEO/master",
     "webtask": "webtask.qld-gov-dev.auth0.com/api/run/dev",
-    "returnTo": "http://localhost:3000/callback.html",
     "useWrapped": true,
     "level": "Level_1"
   }

@@ -25,7 +25,7 @@
                         webtaskHome: loginConfig.webtask,
                         level: loginConfig.level,
                         wrapped: loginConfig.useWrapped,
-                        returnTo: loginConfig.returnTo
+                        returnTo: location.protocol + '//' + location.host + '/callback.html'
                     });
 
                     $('#qg-avatar').avatar().trigger('qg.avatar.enabled');
