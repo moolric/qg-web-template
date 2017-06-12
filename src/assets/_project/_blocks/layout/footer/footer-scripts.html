@@ -16,18 +16,21 @@
     requirejs(['https://cidm-neo.sandpit.test-services.qld.gov.au/DEV/CIDM-NEO/master/js/cidm-loader.js'], function() {
         requirejs(['cidm-neo', 'cidm-utils'], function(neo, utils) {
             $(document).ready(function() {
-                $.qgcidm.initialise({
-                    home: 'https://cidm-neo.sandpit.test-services.qld.gov.au/DEV/CIDM-NEO/master',
-                    domain: 'tst.qld-gov-dev.auth0.com',
-                    clientID: 'KbLYhgu6qXDdpqWD8LV6rodBu2RO3YcH',
-                    webtaskHome: 'webtask.qld-gov-dev.auth0.com/api/run/dev',
-                    level: 'Level_1',
-                    wrapped: true,
-                    returnTo: 'http://localhost:3000/callback.html'
-                });
+                $.getJSON('/config.json', function (config) {
+                    var loginConfig = config.loginWidget;
+                    $.qgcidm.initialise({
+                        home: loginConfig.home,
+                        domain: loginConfig.domain,
+                        clientID: loginConfig.clientID,
+                        webtaskHome: loginConfig.webtask,
+                        level: loginConfig.level,
+                        wrapped: loginConfig.useWrapped,
+                        returnTo: loginConfig.returnTo
+                    });
 
-                $('#qg-avatar').avatar().trigger('qg.avatar.enabled');
-                $.qgcidm.enable();
+                    $('#qg-avatar').avatar().trigger('qg.avatar.enabled');
+                    $.qgcidm.enable();
+                });
             });
         });
     });
