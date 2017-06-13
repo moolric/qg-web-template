@@ -20,6 +20,7 @@ const loginWidget = (function () {
     });
 
     $('#qg-site-header').on('qg.avatar.enabled', function () {
+      console.log('qg.avatar.enabled');
       $(this).addClass('with-avatar');
       $(avatarContainerSelector).removeClass('hidden');
     });
