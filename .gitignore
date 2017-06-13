@@ -50,6 +50,6 @@ etc/
 ### Build & Release ###
 /build/**
 /release/**
-src/**/build/**
+
 !src/**/build/callback.html
 !src/**/build/config.json
