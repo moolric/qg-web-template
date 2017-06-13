@@ -15,10 +15,12 @@
 <script type="text/javascript">
     $.getJSON('/config.json', function (config) {
         var loginConfig = config.loginWidget;
+
         requirejs([loginConfig.home + '/js/cidm-loader.js'], function() {
             requirejs(['cidm-neo', 'cidm-utils'], function(neo, utils) {
-                $('head').append('<link rel="stylesheet" href="' + loginConfig.home +'/css/cidm-neo.css" type="text/css" />');
-                $('head').append('<link rel="stylesheet" href="' + loginConfig.home +'/css/cidm-profile.css" type="text/css" />');
+                $('head')
+                    .append('<link rel="stylesheet" href="' + loginConfig.home +'/css/cidm-neo.css" type="text/css" />')
+                    .append('<link rel="stylesheet" href="' + loginConfig.home +'/css/cidm-profile.css" type="text/css" />');
 
                 $(document).ready(function() {
                     $.qgcidm.initialise({
